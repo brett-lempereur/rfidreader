@@ -42,7 +42,8 @@ class RFIDReader(object):
     """
 
     # Sleep and wake command codes.
-    COMMAND_SLEEP = 0x01
+    COMMAND_SELECT = 0x01
+    COMMAND_SLEEP = 0x50
 
     # Success response code.
     STATUS_SUCCESS = 0x00
