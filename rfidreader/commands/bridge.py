@@ -16,7 +16,7 @@ REMOVED_TOPIC = "rfid/removed"
 
 # Build the command-line argument parser.
 parser = argparse.ArgumentParser(description="RFID to MQTT bridge")
-parser.add_argument("hostname", help="Message broker hostname")
+parser.add_argument("host", help="Message broker host")
 parser.add_argument("port", type=int, help="Message broker port")
 
 def loop(rfid, client, delay=0.1):
