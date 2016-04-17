@@ -60,7 +60,7 @@ class RFIDReader(object):
         self.bus = io.FileIO("/dev/i2c-{}".format(bus), "r+")
         # Specify the address of the slave.
         error = fcntl.ioctl(self.bus, I2C_SLAVE, address)
-        if error is not None:
+        if error:
             raise RuntimeError("Couldn't set the slave address:", error)
         # Enable GPIO detection if specified.
         self.pin_detect = None
