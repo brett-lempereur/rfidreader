@@ -4,6 +4,7 @@ broker, emitting messages when a card is presented and removed.
 """
 
 import argparse
+import binascii
 import time
 
 import paho.mqtt.client
@@ -34,7 +35,8 @@ def loop(rfid, client, delay=0.1):
         if response is not None:
             if present != response:
                 present = response
-                client.publish(PRESENTED_TOPIC, response[1])
+                cleaned = binascii.hexlify(response[1])
+                client.publish(PRESENTED_TOPIC, cleaned)
         else:
             if present is not None:
                 present = None
