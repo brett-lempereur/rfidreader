@@ -30,7 +30,7 @@ def loop(rfid, client, delay=0.1):
     """
     present = None
     while True:
-        response = rfid.select()
+        response = rfid.poll()
         if response is not None:
             if present != response:
                 present = response
