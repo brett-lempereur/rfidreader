@@ -98,7 +98,7 @@ class RFIDReader(object):
         response = self.bus.read(256)
         length = ord(response[0])
         # Clean the response by ignoring the MSB
-        clean = ''.join(map(chr, map(lambda c: c & 127, map(ord, response))))
+        #clean = ''.join(map(chr, map(lambda c: c & 127, map(ord, response))))
         # Extract and return the fields from the response
         command = ord(clean[1])
         status = ord(clean[2])
